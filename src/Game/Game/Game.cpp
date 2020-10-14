@@ -45,10 +45,10 @@ void Game::Init()
 		glm::vec3{ 0.f, 0.f, 0.2f }, glm::vec3{ 0.f, 0.f, 0.6f }, glm::vec3{ 0.0f, 0.0f, 0.6f },
 		1.f, 0.14f, 0.07f));
 
-	testModel = new Model("../res/model/backpack.obj", ourShader);
-	testModel2 = new Model("../res/model/backpack.obj", ourShader);
-	testModel3 = new Model("../res/model/backpack.obj", ourShader);
-	testModel4 = new Model("../res/model/backpack.obj", ourShader);
+	testModel = new Model("../res/model/tankv5.fbx", ourShader);
+	testModel2 = new Model("../res/model/tankv5.fbx", ourShader);
+	testModel3 = new Model("../res/model/tankv5.fbx", ourShader);
+	testModel4 = new Model("../res/model/tankv5.fbx", ourShader);
 	bsp = new Model("../res/BSPModel/Planes.fbx", ourShader, false);
 
 	testModel2->Translate(20, { -1,0,0 });
