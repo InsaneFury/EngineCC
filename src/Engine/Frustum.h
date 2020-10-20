@@ -22,6 +22,7 @@ private:
 	template<Planes i, Planes j>
 	struct ij2k
 	{
+		//Vos le das dos planos y te devuelve como resultado el indice del plano de intersección entre ellos en el array.
 		enum { k = i * (9 - i) / 2 + j - 1 };
 	};
 

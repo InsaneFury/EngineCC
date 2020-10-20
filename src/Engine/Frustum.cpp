@@ -3,6 +3,7 @@
 Frustum::Frustum() {}
 Frustum::Frustum(glm::mat4 m)
 {
+	//Genera los planos
 	m = glm::transpose(m);
 	m_planes[Left] = m[3] + m[0];
 	m_planes[Right] = m[3] - m[0];
@@ -11,6 +12,7 @@ Frustum::Frustum(glm::mat4 m)
 	m_planes[Near] = m[3] + m[2];
 	m_planes[Far] = m[3] - m[2];
 
+	//Genera los crosses
 	glm::vec3 crosses[Combinations] = {
 		glm::cross(glm::vec3(m_planes[Left]),   glm::vec3(m_planes[Right])),
 		glm::cross(glm::vec3(m_planes[Left]),   glm::vec3(m_planes[Bottom])),
@@ -73,6 +75,8 @@ bool Frustum::IsBoxVisible(const glm::vec3& minp, const glm::vec3& maxp) const
 template<Frustum::Planes a, Frustum::Planes b, Frustum::Planes c>
 glm::vec3 Frustum::intersection(const glm::vec3* crosses) const
 {
+	//Busca el punto de intersección entre los 3 planos.
+	//crosses el array de todas los crosses de los planos.
 	float D = glm::dot(glm::vec3(m_planes[a]), crosses[ij2k<b, c>::k]);
 	glm::vec3 res = glm::mat3(crosses[ij2k<b, c>::k], -crosses[ij2k<a, c>::k], crosses[ij2k<a, b>::k]) *
 		glm::vec3(m_planes[a].w, m_planes[b].w, m_planes[c].w);
