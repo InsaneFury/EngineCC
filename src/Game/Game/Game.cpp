@@ -45,12 +45,11 @@ void Game::Init()
 		glm::vec3{ 0.f, 0.f, 0.2f }, glm::vec3{ 0.f, 0.f, 0.6f }, glm::vec3{ 0.0f, 0.0f, 0.6f },
 		1.f, 0.14f, 0.07f));
 
-	testModel = new Model("../res/model/Neck_Mech_Walker_by_3DHaupt-(Wavefront OBJ).obj", ourShader);
-	testModel2 = new Model("../res/model/Neck_Mech_Walker_by_3DHaupt-(Wavefront OBJ).obj", ourShader);
-	testModel3 = new Model("../res/model/Neck_Mech_Walker_by_3DHaupt-(Wavefront OBJ).obj", ourShader);
-	testModel4 = new Model("../res/model/Neck_Mech_Walker_by_3DHaupt-(Wavefront OBJ).obj", ourShader);
+	testModel = new Model("../res/model/backpack.obj", ourShader);
+	testModel2 = new Model("../res/model/backpack.obj", ourShader);
+	testModel3 = new Model("../res/model/backpack.obj", ourShader);
+	testModel4 = new Model("../res/model/backpack.obj", ourShader);
 	bsp = new Model("../res/BSPModel/Planes.fbx", ourShader, false);
-
 	testModel2->Translate(20, { -1,0,0 });
 	testModel3->Translate(20, { 1,0,0 });
 	testModel4->Translate(20, { 0,0,-1 });
@@ -63,11 +62,6 @@ void Game::Update(const float deltaTime)
 {
 	if (cursor->GetCursorMode() != Cursor::CursorMode::capture)
 		cursor->SetCursorMode(Cursor::CursorMode::capture);
-
-	/*if (input->GetKey(GLFW_KEY_X))
-	{
-		renderCamera->RotatePitch(10.f);
-	}*/
 
 	if (input->GetKey(GLFW_KEY_3))
 	{
@@ -193,12 +187,12 @@ void Game::Update(const float deltaTime)
 	if (input->GetKey(GLFW_KEY_1))
 	{
 		testModel->SetColliderVisibility(true);
-		bsp->SetColliderVisibility(true);
+		//bsp->SetColliderVisibility(true);
 	}
 	if (input->GetKey(GLFW_KEY_2))
 	{
 		testModel->SetColliderVisibility(false);
-		bsp->SetColliderVisibility(false);
+		//bsp->SetColliderVisibility(false);
 	}
 
 	fpsCamera->Update();
